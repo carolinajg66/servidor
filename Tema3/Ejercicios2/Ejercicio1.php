@@ -7,7 +7,7 @@ if (! isset($_REQUEST['bAceptar'])) {
 
 <html lang="es">
 <head>
-<title>Ejercicio 3</title>
+<title>Ejercicio 1</title>
 </head>
 <body>
 <form ACTION="<?=$_SERVER ['PHP_SELF'] ?>" METHOD="post">
