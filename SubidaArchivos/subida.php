@@ -24,7 +24,8 @@ If (! isset($_REQUEST['bAceptar'])) {
     $extensionesValidas = array(
         "jpg",
         "png",
-        "gif"
+        "gif",
+        "pdf"
     );
     
     echo "<pre>";
@@ -35,8 +36,8 @@ If (! isset($_REQUEST['bAceptar'])) {
      * Comprobamos si hay un error al subirlo. Si ha habido algún error al subir no será necesario
      * comprobar nada más
      */
-    
-   subidaArchivos();
+    $errores;
+    subidaArchivos($errores,"imagen",$extensionesValidas,$dir,$max_file_size);
 }
 
 ?>

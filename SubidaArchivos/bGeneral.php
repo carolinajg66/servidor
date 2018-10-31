@@ -70,37 +70,55 @@ function cEmail ($correo)
     }
 }
 
-function subidaArchivos(){
+function subidaArchivos(&$errores,$imagen,$extensionesValidas,$dir,$max_file_size ){
     
     if ($_FILES['imagen']['error'] != 0) {
-        echo 'Error: ';
+        $errores[] ='Error: ';
+       /* echo 'Error: ';*/
         switch ($_FILES['imagen']['error']) {
             case 1:
+                $errores[] ="UPLOAD_ERR_INI_SIZE <br>";
+                $errores[] = "Fichero demasiado grande<br>";
+                /*
                 echo "UPLOAD_ERR_INI_SIZE <br>";
                 echo "Fichero demasiado grande<br>";
+                */
                 break;
             case 2:
-                echo "UPLOAD_ERR_FORM_SIZE<br>";
-                echo 'El fichero es demasiado grande<br>';
+                $errores[] ="UPLOAD_ERR_FORM_SIZE<br>";
+                $errores[] ='El fichero es demasiado grande<br>';
+                /*echo "UPLOAD_ERR_FORM_SIZE<br>";
+                echo 'El fichero es demasiado grande<br>';*/
                 break;
             case 3:
+                $errores[] ="UPLOAD_ERR_PARTIAL<br>";
+                $errores[] ='El fichero no se ha podido subir entero<br>';
+                /*
                 echo "UPLOAD_ERR_PARTIAL<br>";
-                echo 'El fichero no se ha podido subir entero<br>';
+                echo 'El fichero no se ha podido subir entero<br>';*/
                 break;
             case 4:
-                echo "UPLOAD_ERR_NO_FILE<br>";
-                echo 'No se ha podido subir el fichero<br>';
+                $errores[] ="UPLOAD_ERR_NO_FILE<br>";
+                $errores[] ='No se ha podido subir el fichero<br>';
+               /* echo "UPLOAD_ERR_NO_FILE<br>";
+                echo 'No se ha podido subir el fichero<br>';*/
                 break;
             case 6:
-                echo "UPLOAD_ERR_NO_TMP_DIR<br>";
-                echo "Falta carpeta temporal<br>";
+                $errores[] ="UPLOAD_ERR_NO_TMP_DIR<br>";
+                $errores[] ="Falta carpeta temporal<br>";
+               /* echo "UPLOAD_ERR_NO_TMP_DIR<br>";
+                echo "Falta carpeta temporal<br>";*/
             case 7:
-                echo "UPLOAD_ERR_CANT_WRITE<br>";
+                $errores[] ="UPLOAD_ERR_CANT_WRITE<br>";
+                $errores[] ="No se ha podido escribir en el disco<br>";
+               /* echo "UPLOAD_ERR_CANT_WRITE<br>";
                 echo "No se ha podido escribir en el disco<br>";
-                
+                */
             default:
-                echo 'Error indeterminado.';
+                $errores[] ='Error indeterminado.';
+               /*echo 'Error indeterminado.';*/
         }
+        return 0;
     } else {
         // Guardamos el nombre original del fichero
         $nombreArchivo = $_FILES['imagen']['name'];
@@ -123,21 +141,28 @@ function subidaArchivos(){
         if ($filesize > $max_file_size) {
             $errores[] = "La imagen debe de tener un tamaño inferior a 50 kb";
         }
-        
+        print_r($errores);
         // Almacenamos el archivo en ubicación definitiva si no hay errores
         if (empty($errores)) {
             // Añadimo time() al nombre del fichero, así lo haremos único y si tuviera doble extensión
             // Haríamos inservible la segunda.
+         
             $nombreArchivo = $arrayArchivo['filename'] . time();
             $nombreCompleto = $dir . $nombreArchivo . "." . $extension;
             // Movemos el fichero a la ubicación definitiva
             if (move_uploaded_file($directorioTemp, $nombreCompleto)) {
-                echo "<br> El fichero \"$nombreCompleto\" ha sido guardado";
+                return $nombreCompleto;
+                /*$errores[] ="<br> El fichero \"$nombreCompleto\" ha sido guardado";
+                echo "<br> El fichero \"$nombreCompleto\" ha sido guardado";*/
             } else {
-                echo "Error: No se puede mover el fichero a su destino";
+                return 0;
+                
+               /* echo "Error: No se puede mover el fichero a su destino";*/
             }
         }
     }
+return 0;
+    
     
     
 }
