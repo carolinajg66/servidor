@@ -1,23 +1,29 @@
 <?php
 
+//Ejercicio 1, EL ejercicio 2 es igual cambiando muy poco
 function fecha(){
     
-  $fecha=getdate();
-       
-    $fecha_valida = checkdate(2, 29, 2012);
-    
-    
-    if ($fecha_valida){
-        
-      $fecha_con_formato = date("d/m/Y -- H:i:s",$fecha_valida);
-      return $fecha_con_formato;
+  $fechaArray = preg_split("/[MIRA LO QUE VA AQUI]", $fecha);
   
-        
-    }else{
-        return 0;
-    }
-
+  if(count($fechaArray)==3){
+      $dia= $fechaArray[0];
+      $mes= $fechaArray[1];
+      $anio= $fechaArray[2];
+      
+      if(checkdate($mes, $dia, $anio)==true){
+          $fechita = mktime($mes, $dia, $anio);
+          return $fechita;
+      }else{
+          return false;
+      }
+      
+      
+  }else{
+      return false; 
+  }
        
-}
+ 
+  
 
+  
 ?>
