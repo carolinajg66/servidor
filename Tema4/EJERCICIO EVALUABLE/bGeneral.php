@@ -25,7 +25,7 @@ function pie(){
 
 function sinTildes($frase) {
 
-	$no_permitidas= array ("á","é","í","ó","ú","Á","É","Í","Ó","Ú","à","è","ì","ò","ù","À","È","Ì","Ò","Ù");
+	$no_permitidas= array ("ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½");
 	$permitidas= array ("a","e","i","o","u","A","E","I","O","U","a","e","i","o","u","A","E","I","O","U");
 	$texto = str_replace($no_permitidas, $permitidas ,$frase);
 	return $texto;
@@ -59,5 +59,58 @@ function recogeArray($var)
     
 
     return $tmp;
+}
+function cTexto ($text)
+{
+    if (preg_match("/^[A-Za-zÃ‘Ã±]+$/", sinTildes($text)))
+        return 1;
+        else
+            return 0;
+}
+
+
+function cNum ($num)
+{
+    if (preg_match("/^[0-9]+$/", $num))
+        return 1;
+        else
+            return 0;
+}
+
+function comprobarDatos($nombre,){
+    
+  
+    
+    if ((cTexto($nombre) == 0)) {
+        $error = true;
+    }
+    
+    if ((cNum($edad) == 0)) {
+        $error = true;
+    }
+    if (! $error) {
+        header("location:correcto.php?nombre=$nombre&edad=$edad");
+    } else {
+        
+        ?>
+<form ACTION="<?=$_SERVER ['PHP_SELF'] //el archivo actual?>"
+	METHOD='post'>
+	<p>Los datos que has introducido no estÃƒÂ¡n en el formato correcto</p>
+	Nombre: <input TYPE="text" NAME="nombre"
+		VALUE="<?php
+        echo $nombre;
+        ?>"> <br> Edad: <input TYPE="text" NAME="edad"
+		VALUE="<?php
+        echo $edad;
+        ?>"> <br>
+		<?php
+        echo '<input TYPE="submit" name="bAceptar" VALUE="aceptar">';
+    }
+    
+    
+    
+    
+    
+    
 }
 

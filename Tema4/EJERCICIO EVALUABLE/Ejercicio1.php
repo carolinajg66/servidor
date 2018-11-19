@@ -21,7 +21,7 @@ If (! isset($_REQUEST['bAceptar'])) {
 		</tr>
 		<tr>
 			<td>Contraseña</td>
-			<td><input type="text" name="contraseña"></td>
+			<td><input type="text" name="contrasenia"></td>
 		</tr>
 		<tr>
 			<td>E-mail</td>
@@ -35,14 +35,22 @@ If (! isset($_REQUEST['bAceptar'])) {
 			<td>Foto</td>
 			<td><input type="file" name="imagen" id="imagen"></td>
 		</tr>
-
-
+		<tr>
+			<td><input type="submit" name="bAceptar" VALUE="aceptar"></td>
+		</tr>
 	</table>
-
-
 </form>
 </html>
 <?php
-} else {}
+} else {
+    $nombre = recoge("nombre");
+    $nombreUsr = recoge("nombreUsuario");
+    $contrasenia=recoge("contrasenia");
+    $email=recoge("email");
+    $fechaNacimiento=recoge("fechaNacimiento");
+    
+    
+    
+}
 
 ?>
