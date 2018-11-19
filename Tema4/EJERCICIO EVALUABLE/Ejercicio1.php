@@ -43,6 +43,7 @@ If (! isset($_REQUEST['bAceptar'])) {
 </html>
 <?php
 } else {
+    
     $nombre = recoge("nombre");
     $nombreUsr = recoge("nombreUsuario");
     $contrasenia=recoge("contrasenia");
