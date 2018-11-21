@@ -12,7 +12,7 @@ cabecera($_SERVER['PHP_SELF']);
 * con el operador .
 * */
 // Uso junto con file_get_contents
-$archivo = "prueba.txt";
+$archivo = "ficheros/prueba.txt";
 //Leemos el contenido del fichero
 $actual = file_get_contents($archivo);
 /*
@@ -29,8 +29,8 @@ echo nl2br($actual);
  * Conseguimos lo mismo que en la primera parte del ejemplo pero de forma más cómoda
  */
 echo "Probamos la función pero añadiendo contenido al fichero <ber>";
-$archivo = "prueba.txt";
-$mascontenido = "¡Todavía más contenido!\n";
+$archivo = "ficheros/prueba.txt";
+$mascontenido = "¡Todavía más contenidoaa!\n";
 // También vamos a emplear la bandera LOCK_EX para evitar cualquier modificación mientras:
 file_put_contents($archivo, $mascontenido, FILE_APPEND);
 $actual = file_get_contents($archivo);

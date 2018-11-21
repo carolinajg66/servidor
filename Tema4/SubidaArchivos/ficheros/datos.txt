@@ -1,0 +1,20 @@
+Nombre: a
+Nombre Usuario: a
+E-mail: a
+Contraseña: a
+Fecha de nacimiento: a
+Nombre: a
+Nombre Usuario: a
+E-mail: a
+Contraseña: a
+Fecha de nacimiento: a
+Nombre: 
+Nombre Usuario: a
+E-mail: a
+Contraseña: a
+Fecha de nacimiento: 
+Nombre: a
+Nombre Usuario: a
+E-mail: a
+Contraseña: a
+Fecha de nacimiento: a

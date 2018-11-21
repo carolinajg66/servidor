@@ -33,6 +33,7 @@ else {
         $error = true;
         $errores[]="El email esta mal";
     }
+    
     if (! $error) {
         header("location:correcto.php?nombre=$nombre&edad=$edad&email=$email");
     } else {
@@ -48,17 +49,10 @@ else {
 	echo "<br>";
 	?>
 	Nombre: <input TYPE="text" NAME="nombre"
-		VALUE="<?php
-        echo $nombre;
-        ?>"> <br> Edad: <input TYPE="text" NAME="edad"
-		VALUE="<?php
-        echo $edad;
-        ?>"> <br> Email: <input TYPE="text" NAME="email"
-		VALUE="<?php
-        echo $email;
-        ?>"> <br>
-		<?php
-        echo '<input TYPE="submit" name="bAceptar" VALUE="aceptar">';
+		VALUE="<?php echo $nombre;?>"> <br> Edad: <input TYPE="text" NAME="edad"
+		VALUE="<?php echo $edad;?>"> <br> Email: <input TYPE="text" NAME="email"
+		VALUE="<?php echo $email;?>"> <br>
+		<?php echo '<input TYPE="submit" name="bAceptar" VALUE="aceptar">';
     }
 }
 ?>

@@ -133,36 +133,24 @@ function comprobarDatos($nombre, $nombreUsuario, $contrasenia, $email, $fechaNac
 {
     if ((cTexto($nombre) == 0)) {
         $error = true;
+        $errores[]="El nombre esta mal";
     }
     if ((cTexto($nombreUsuario) == 0)) {
         $error = true;
+        $errores[]="El nombre de usuario esta mal";
     }
-    if ((cTexto($contrasenia) == 0)) {
+    if ((cNum($contrasenia) == 0)) {
         $error = true;
+        $errores[]="La contraseña esta mal";
     }
     if ((cEmail($email) == 0)) {
         $error = true;
+        $errores[]="El email esta mal";
     }
-    if ((cTexto($fechaNacimiento) == 0)) {
+    if ((cNum($fechaNacimiento) == 0)) {
         $error = true;
+        $errores[]="La fecha de nacimiento esta mal";
     }
-    if (! $error) {
-        header("location:correcto.php?nombre=$nombre&edad=$edad");
-    } else {
-
-        ?>
-<form ACTION="<?=$_SERVER ['PHP_SELF'] //el archivo actual?>"
-		METHOD='post'>
-		<p>Los datos que has introducido no estan en el formato correcto</p>
-		Nombre: <input TYPE="text" NAME="nombre"
-			VALUE="<?php
-        echo $nombre;
-        ?>"> <br> Edad: <input TYPE="text" NAME="edad"
-			VALUE="<?php
-        echo $edad;
-        ?>"> <br>
-		<?php
-        echo '<input TYPE="submit" name="bAceptar" VALUE="aceptar">';
-    }
+    
 }
 
