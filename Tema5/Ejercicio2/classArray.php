@@ -60,7 +60,7 @@ class manejoArray
             $this->data=array_merge($this->data,$array2);
             return $this->data;
         }else{
-            return $this->error="El segundo array no es un array";
+            return $this->data;
         
     }
 }
@@ -78,7 +78,7 @@ $objArray->b = 1;
 $objArray->c = 1;
 echo "</br>";
 
-//añadirmos elementos al array2
+//añadirmos elementos al array2 con _get
 
 $array2->a = 2;
 $array2->b = 2;
@@ -105,6 +105,12 @@ print_r($objArray);
 //Sacamos el array
 echo "</br>";
 $array=$objArray->getArray();
+print_r($array);
+
+//Unimos los dos arrays
+
+echo "</br>";
+$array=$array2->unirArray($objArray->getArray());
 print_r($array);
 
 
