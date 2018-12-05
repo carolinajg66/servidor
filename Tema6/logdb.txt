@@ -1,0 +1,3 @@
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.empleados' doesn't exist0.13872100 1544027988
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.empleados' doesn't exist0.40659400 1544028029
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.empleados' doesn't exist0.32469700 1544028099
