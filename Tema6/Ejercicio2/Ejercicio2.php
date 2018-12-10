@@ -13,10 +13,8 @@ try {
     $stmt = $db->getEmpleados();
     
     if ($stmt->rowCount() > 0) {
-        print_r($stmt);
         foreach ($stmt as $valor)
-            /*echo "<p>$valor[usuario] $valor[clave]</p>\n";*/
-            echo "<p>".$valor['id']." ". $valor['nombre']." ".  $valor['puesto'] ." ". $valor['fecha_nacimiento']." ".  $valor['salario']."</p>\n";
+            echo "<p>$valor[id] $valor[nombre]$valor[puesto] $valor[fecha_nacimiento]$valor[salario]</p>\n";
     } else {
         echo 'No hay registros de resultado';
         // throw new Exception('No hay registros de resultado');

@@ -3,3 +3,6 @@ Call to a member function rowCount() on string0.17950900 1544035110
 Call to a member function rowCount() on string0.08080200 1544035126
 Class 'Config' not found0.61776600 1544035582
 SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.empleados' doesn't exist0.86315400 1544036423
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.empleados' doesn't exist0.17858900 1544451175
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.empleados' doesn't exist0.75490100 1544451326
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.empleados' doesn't exist0.24331000 1544454665

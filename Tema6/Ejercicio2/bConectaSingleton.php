@@ -46,7 +46,7 @@ class modelo extends PDO
         $result = $this->prepare($consulta);
         $result->execute();
         return $result;
-    
+        
     }
     
     
