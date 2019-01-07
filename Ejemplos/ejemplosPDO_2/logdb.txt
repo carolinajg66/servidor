@@ -1,0 +1,2 @@
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.usuarios' doesn't exist0.25291600 1546872273
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'login.usuarios' doesn't exist0.33605300 1546872297
